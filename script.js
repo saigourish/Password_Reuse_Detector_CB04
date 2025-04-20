@@ -6,8 +6,6 @@ function arePasswordsSimilar(pw1, pw2, threshold = 0.8) {
     const sameCount = Array.from(shorter).filter((char, i) => longer[i] === char).length;
     return (sameCount / longerLength) >= threshold;
 }
-
-// Generate a random strong password
 function generateRandomPassword(length = 12) {
     const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?";
     let password = "";
@@ -16,15 +14,11 @@ function generateRandomPassword(length = 12) {
     }
     return password;
 }
-
-// Reset reused password
 function resetPassword(oldPasswordId) {
     const newPassword = generateRandomPassword();
     const container = document.getElementById(oldPasswordId);
     container.innerHTML = `<div class="new-password">🔑 Suggested Password: ${newPassword}</div>`;
 }
-
-// Save history to localStorage
 function saveHistory(email, passwords) {
     const history = JSON.parse(localStorage.getItem('passwordHistory')) || [];
     const record = {
@@ -36,8 +30,6 @@ function saveHistory(email, passwords) {
     localStorage.setItem('passwordHistory', JSON.stringify(history));
     populateHistory();
 }
-
-// Populate the history dropdown
 function populateHistory() {
     const historyList = document.getElementById('historyList');
     const history = JSON.parse(localStorage.getItem('passwordHistory')) || [];
@@ -49,8 +41,6 @@ function populateHistory() {
         historyList.appendChild(option);
     });
 }
-
-// Load selected history
 function loadHistory() {
     const history = JSON.parse(localStorage.getItem('passwordHistory')) || [];
     const selectedIndex = document.getElementById('historyList').value;
@@ -60,8 +50,6 @@ function loadHistory() {
         document.getElementById('passwords').value = record.passwords.join('\n');
     }
 }
-
-// Analyze entered passwords
 function analyzePasswords() {
     const email = document.getElementById('email').value.trim();
     const passwordsRaw = document.getElementById('passwords').value.trim();
@@ -71,8 +59,6 @@ function analyzePasswords() {
         alert("Please enter your email and at least one password.");
         return;
     }
-
-    // Save to history
     saveHistory(email, passwords);
 
     const reuseCount = {};
@@ -124,8 +110,6 @@ function analyzePasswords() {
     reportDiv.innerHTML = reportHTML;
     reportDiv.style.display = 'block';
 }
-
-// Load history on page load
 window.onload = function() {
     populateHistory();
 }
