@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Reuse Detector🔒</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="container">
+    <h2>🔒 Password Reuse Detector </h2>
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" placeholder="Enter your email">
+
+    <label for="passwords">Enter Your Passwords (one per line):</label>
+    <textarea id="passwords" rows="8" placeholder="Password1&#10;Password2&#10;Password3"></textarea>
+
+    <button onclick="analyzePasswords()">Analyze Passwords</button>
+
+    <div class="section-title">📜 History</div>
+    <select id="historyList" onchange="loadHistory()">
+        <option value="">-- Select History --</option>
+    </select>
+
+    <div id="report" class="report" style="display:none;"></div>
+</div>
+<script src = "script.js"></script>
+
+</body>
+</html>
