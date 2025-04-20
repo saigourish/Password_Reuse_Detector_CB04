@@ -55,15 +55,5 @@ It detects reused and similar passwords, suggests strong replacements, and maint
 
 ---
 
-## 📸 Screenshots
 
-| Main Analyzer | History Dropdown |
-| :-----------: | :---------------: |
-| ![Analyzer Screenshot](screenshots/analyzer.png) | ![History Screenshot](screenshots/history.png) |
-
-*(Make sure to upload your own screenshots in a `/screenshots` folder.)*
-
----
-
-## 📦 Project Structure
 
